@@ -5,23 +5,25 @@ import ListadoPacientes from "./components/ListadoPacientes"
 
 
 function App() {
-//a mi se me ocurrio hacerlo asi, esta mal?
-  const [pacientes, setPacientes] = useState(JSON.parse(localStorage.getItem('pacientes')) ?? [])
-  //const [pacientes, setPacientes] = useState([])
+  //a mi se me ocurrio hacerlo asi, esta mal?
+  //const [pacientes, setPacientes] = useState(JSON.parse(localStorage.getItem('pacientes')) ?? [])
+  const [pacientes, setPacientes] = useState([])
   const [paciente, setPaciente] = useState({})
 
 //de esta forma lo hizo el teacher, un useEffect que se realice una vez al cargar la app y recupere lo que hay LS y setea el useState pacientes
   useEffect(() => {
-    const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? []
-    setPacientes(pacientesLS)
-    console.log(pacientesLS)
-  }, [])
+    const obtenerLS = () => {
+      const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? [];
+      setPacientes(pacientesLS)
+    }
+    obtenerLS();
+  }, []);
   
   useEffect(() => {
     localStorage.setItem('pacientes', JSON.stringify( pacientes ))
   }, [pacientes])
 
-  const eliminarPaciente =(id) => {
+  const eliminarPaciente = (id) => {
     const pacientesAtualizados = pacientes.filter(paciente => paciente.id !== id)
     setPacientes(pacientesAtualizados)  
   }
@@ -44,6 +46,7 @@ function App() {
       </div>
     </div>
   )
+  
 }
 
 export default App

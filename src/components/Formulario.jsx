@@ -35,31 +35,7 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
         setFecha('')
         setSintomas('')
     }
-
-    // const agregarPaciente = () => {
-    //     //Objeto Paciente
-    //     const nuevoPaciente = {
-    //         nombre,
-    //         propietario,
-    //         email,
-    //         fecha,
-    //         sintomas,
-    //         id: generarID()
-    //     }     
-
-    //     setPacientes([...pacientes, nuevoPaciente])
-    // }
-
-    // const editarPaciente = () => {
-    //     //esta es una mala practica pk no puedes modificar un objeto directamente, sino mediante su set, lo ideal es crear un arreglo nuevo
-    //     paciente.nombre = nombre
-    //     paciente.propietario = propietario
-    //     paciente.email = email
-    //     paciente.fecha = fecha
-    //     paciente.sintomas = sintomas
-    //     setPaciente({})
-    // }
-
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         //validacion del formulario
